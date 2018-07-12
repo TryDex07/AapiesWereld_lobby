@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>nl.trydex07.lobby</groupId>
+    <artifactId>Core</artifactId>
+    <version>0.1</version>
+    <name>Lobby</name>
+
+    <properties>
+        <!-- Removes warnings -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Used in plugin.yml -->
+        <mainClass>nl.trydex07.lobby.Core</mainClass>
+        <!-- Also used in plugin.yml -->
+        <author>TryDex07</author>
+    </properties>
+    <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>SelectorItems.yml</include>
+                    <include>SelectorSkulls.yml</include>
+                    <include>Config.yml</include>
+                    <include>plugin.yml</include>
+                    <include>MySQL.yml</include>
+                    <include>Messages.yml</include>
+                    <include>Crates.yml</include>
+                    <include>CrateItems.yml</include>
+                    <include>CheckPoints.yml</include>
+                    <include>ArmorStands.yml</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- Sets the Java version to 8 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!-- Sets the custom JARfile name (Project name without spaces is good) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <finalName>${project.name}</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>dmulloy2-repo</id>
+            <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
+        </repository>
+        <!-- And so on -->
+    </repositories>
+    <dependencies>
+        <!-- Spigot -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,8 @@
+name: Lobby
+version: 0.1
+author: TryDex07
+main: nl.trydex07.lobby.Core
+commands:
+  lobby:
+  crate:
+  parkour:
