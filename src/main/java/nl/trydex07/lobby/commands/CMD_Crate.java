@@ -27,17 +27,17 @@ public class CMD_Crate implements CommandExecutor {
 			} else {
 
 				if (args.length == 0) {
-					sender.sendMessage(Utility.format("&7------&8[&bLobby&8]&7------"));
-					sender.sendMessage(Utility.format("&b/Crate create <name>"));
-					sender.sendMessage(Utility.format("&b/Crate remove <name>."));
-					sender.sendMessage(Utility.format("&b/Crate addkey <player> <count>."));
-					sender.sendMessage(Utility.format("&b/Crate list."));
-					sender.sendMessage(Utility.format("&7------&8[&bLobby&8]&7------"));
+					sender.sendMessage(Utility.format("&7------&8[&6Lobby&8]&7------"));
+					sender.sendMessage(Utility.format("&6/Crate create <name>"));
+					sender.sendMessage(Utility.format("&6/Crate remove <name>."));
+					sender.sendMessage(Utility.format("&6/Crate addkey <player> <count>."));
+					sender.sendMessage(Utility.format("&6/Crate list."));
+					sender.sendMessage(Utility.format("&7------&8[&6Lobby&8]&7------"));
 					return false;
 				}
 				if (args[0].equalsIgnoreCase("create")) {
 					if (args.length < 2) {
-						sender.sendMessage(Utility.format("&b/Crate create <name>."));
+						sender.sendMessage(Utility.format("&6/Crate create <name>."));
 						return false;
 					}
 					fm.reloadConfig();
@@ -50,7 +50,7 @@ public class CMD_Crate implements CommandExecutor {
 				}
 				if (args[0].equalsIgnoreCase("remove")) {
 					if (args.length < 2) {
-						sender.sendMessage(Utility.format("&b/Crate remove <name>."));
+						sender.sendMessage(Utility.format("&6/Crate remove <name>."));
 						return false;
 					}
 					fm.reloadConfig();
@@ -78,7 +78,7 @@ public class CMD_Crate implements CommandExecutor {
 				}
 				if (args[0].equalsIgnoreCase("addKey")) {
 					if (args.length < 3) {
-						sender.sendMessage(Utility.format("&b/Crate addkey <player> <count>."));
+						sender.sendMessage(Utility.format("&6/Crate addkey <player> <count>."));
 						return false;
 					}
 					Player target = Bukkit.getPlayer(args[1]);

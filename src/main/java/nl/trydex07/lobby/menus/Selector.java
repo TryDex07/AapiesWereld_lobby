@@ -27,7 +27,7 @@ public class Selector {
     private Inventory inv;
 
     public void open(Player p){
-        inv = Bukkit.createInventory(null,fm1.getConfig().getInt("Selector-size"), Utility.format("&4Server Selector"));
+        inv = Bukkit.createInventory(null,fm1.getConfig().getInt("Selector-size"), Utility.getMessage("Selector-Name"));
         addToList();
         for(String names : list){
             ItemStack stack = new ItemStack(Material.STONE);

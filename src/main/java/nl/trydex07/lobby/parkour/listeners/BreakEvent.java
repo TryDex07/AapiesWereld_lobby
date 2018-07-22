@@ -18,23 +18,28 @@ public class BreakEvent implements Listener{
 
     @EventHandler
     public void on(BlockBreakEvent e){
+        if(e.getPlayer().getItemInHand() == null) {
+            return;
+        }
         if(e.getPlayer().getItemInHand() == null){
             return;
         }
-        if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName() == null){
+        if(e.getPlayer().getItemInHand().getType() == Material.AIR){
             return;
         }
 
-        ItemStack stack = new ItemHandler().getItem(Material.STICK, 1, 0, Utility.format("&bCheckpoint&7(Left click)"));
+        ItemStack stack = new ItemHandler().getItem(Material.STICK, 1, 0, Utility.format("&6Checkpoint&7(Left click)"));
         ItemMeta meta = stack.getItemMeta();
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addEnchant(Enchantment.DAMAGE_UNDEAD, 0, false);
         stack.setItemMeta(meta);
 
         Player p = e.getPlayer();
-        if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&bCheckpoint&7(Left click)"))){
-            e.setCancelled(true);
-            ParkourHandler.getParkour(CMD_Parkour.parkourname).addCheckPoint(e.getBlock().getLocation());
+        if(p.getItemInHand().getItemMeta().getDisplayName() != null){
+            if (p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&6Checkpoint&7(Left click)"))) {
+                e.setCancelled(true);
+                ParkourHandler.getParkour(CMD_Parkour.parkourname).addCheckPoint(e.getBlock().getLocation());
+            }
         }
     }
 }

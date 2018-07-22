@@ -13,19 +13,19 @@ public class Cosmetics {
     private Inventory inv;
 
     public void setup(Player p){
-        inv = Bukkit.createInventory(null, 27, Utility.format("&4Cosmetics"));
+        inv = Bukkit.createInventory(null, 45, Utility.getMessage("Cosmetic-Name"));
 
-        ItemStack stack = new ItemHandler().getItem(Material.REDSTONE_COMPARATOR,1 , 0, "Gadgets");
-        ItemStack stack1 = new ItemHandler().getItem(Material.BANNER,1 , 0, "Banner");
-        ItemStack stack2 = new ItemHandler().getItem(Material.HAY_BLOCK,1 , 0, "Heads");
-        ItemStack stack3 = new ItemHandler().getItem(Material.BLAZE_POWDER,1 , 0, "Effecten");
-        ItemStack stack4 = new ItemHandler().getItem(Material.RED_MUSHROOM,1 , 0, "Reset cosmetics");
+        ItemStack stack = new ItemHandler().getItem(Material.REDSTONE_COMPARATOR,1 , 0, Utility.getCos("gadgets"));
+        ItemStack stack1 = new ItemHandler().getItem(Material.BANNER,1 , 0, Utility.getCos("banners"));
+        ItemStack stack2 = new ItemHandler().getItem(Material.HAY_BLOCK,1 , 0, Utility.getCos("heads"));
+        ItemStack stack3 = new ItemHandler().getItem(Material.BLAZE_POWDER,1 , 0, Utility.getCos("effecten"));
+        ItemStack stack4 = new ItemHandler().getItem(Material.RED_MUSHROOM,1 , 0, Utility.getCos("reset"));
 
-        inv.setItem(4, stack);
+        inv.setItem(34, stack);
         inv.setItem(11, stack1);
         inv.setItem(15, stack2);
-        inv.setItem(20, stack3);
-        inv.setItem(24, stack4);
+        inv.setItem(28, stack3);
+        inv.setItem(13, stack4);
         p.openInventory(inv);
     }
 

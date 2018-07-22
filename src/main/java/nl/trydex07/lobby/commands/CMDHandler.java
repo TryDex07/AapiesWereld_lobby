@@ -24,15 +24,15 @@ public class CMDHandler implements CommandExecutor{
             }else {
                 Player p = (Player) sender;
                 if (args.length == 0) {
-                    sender.sendMessage(Utility.format("&7-----&8[&bLobby&8]&7-----"));
-                    sender.sendMessage(Utility.format("&b/lobby additem &7<&bName&7> &7<&bServerName&7> &7<&bMaterial&7> &7<&bByte&7> &7<&bDisplayname&7> &7<&bslot&7> &7<&bClickable&7>"));
-                    sender.sendMessage(Utility.format("&b/lobby addskull &7<&bName&7> &7<&bSkullOwner&7> &7<&bDisplayname&7> &7<&bServerName&7> &7<&bSlot&7> &7<&bClickable&7> "));
-                    sender.sendMessage(Utility.format("&7-----&8[&bLobby&8]&7-----"));
+                    sender.sendMessage(Utility.format("&7-----&8[&6Lobby&8]&7-----"));
+                    sender.sendMessage(Utility.format("&6/lobby additem &7<&6Name&7> &7<&6ServerName&7> &7<&6Material&7> &7<&6Byte&7> &7<&6Displayname&7> &7<&6slot&7> &7<&6Clickable&7>"));
+                    sender.sendMessage(Utility.format("&6/lobby addskull &7<&6Name&7> &7<&6SkullOwner&7> &7<&6Displayname&7> &7<&6ServerName&7> &7<&6Slot&7> &7<&6Clickable&7> "));
+                    sender.sendMessage(Utility.format("&7-----&8[&6Lobby&8]&7-----"));
                     return false;
                 }
                 if (args[0].equalsIgnoreCase("additem")) {
                     if (args.length < 6) {
-                        sender.sendMessage(Utility.format("&b/lobby additem &7<&bName&7> &7<&bServerName&7> &7<&bMaterial&7> &7<&bByte&7> &7<&bDisplayname&7> &7<&bslot&7> &7<&bClickable&7>"));
+                        sender.sendMessage(Utility.format("&6/lobby additem &7<&6Name&7> &7<&6ServerName&7> &7<&6Material&7> &7<&6Byte&7> &7<&6Displayname&7> &7<&6slot&7> &7<&6Clickable&7>"));
                         return false;
                     }
                     ItemStack stack = new ItemStack(Material.getMaterial(args[3].toUpperCase()), 1, (short) Integer.parseInt(args[4]));
@@ -49,7 +49,7 @@ public class CMDHandler implements CommandExecutor{
 
                 if (args[0].equalsIgnoreCase("addskull")) {
                     if (args.length < 6) {
-                        sender.sendMessage(Utility.format("&b/lobby addskull &7<&bName&7> &7<&bSkullOwner&7> &7<&bDisplayname&7> &7<&bServerName&7> &7<&bSlot&7> &7<&bClickable&7> "));
+                        sender.sendMessage(Utility.format("&6/lobby addskull &7<&6Name&7> &7<&6SkullOwner&7> &7<&6Displayname&7> &7<&6ServerName&7> &7<&6Slot&7> &7<&6Clickable&7> "));
                         return false;
                     }
                     ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);

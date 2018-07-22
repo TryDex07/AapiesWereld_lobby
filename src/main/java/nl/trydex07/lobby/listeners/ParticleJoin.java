@@ -22,27 +22,27 @@ public class ParticleJoin implements Listener{
     ItemStack question = new ItemHandler().addSKull("MHF_question","Vraagtezken");
     ItemStack vraagteken = new ItemHandler().addSKull("MHF_Exclamation","Uitroepteken");
 
-    ItemStack glass = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 1, "Glass");
-    ItemStack glass1 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 2, "Glass");
-    ItemStack glass2 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 3, "Glass");
-    ItemStack glass3 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 4, "Glass");
-    ItemStack glass4 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 5, "Glass");
-    ItemStack glass5 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 6, "Glass");
-    ItemStack glass6 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 9, "Glass");
-    ItemStack glass7 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 10, "Glass");
-    ItemStack glass8 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 11, "Glass");
-    ItemStack glass9 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 12, "Glass");
-    ItemStack glass10 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 13, "Glass");
-    ItemStack glass11 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 14, "Glass");
+    ItemStack Glas = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 1, "Gekleurd Glas");
+    ItemStack Glas1 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 2, "Gekleurd Glas");
+    ItemStack Glas2 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 3, "Gekleurd Glas");
+    ItemStack Glas3 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 4, "Gekleurd Glas");
+    ItemStack Glas4 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 5, "Gekleurd Glas");
+    ItemStack Glas5 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 6, "Gekleurd Glas");
+    ItemStack Glas6 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 9, "Gekleurd Glas");
+    ItemStack Glas7 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 10, "Gekleurd Glas");
+    ItemStack Glas8 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 11, "Gekleurd Glas");
+    ItemStack Glas9 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 12, "Gekleurd Glas");
+    ItemStack Glas10 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 13, "Gekleurd Glas");
+    ItemStack Glas11 = new ItemHandler().getItem(Material.STAINED_GLASS, 1, 14, "Gekleurd Glas");
 
-    ItemStack tnt = new ItemHandler().getItem(Material.TNT, 1, 12, "Tnt");
+    ItemStack tnt = new ItemHandler().getItem(Material.TNT, 1, 12, "§cTnT");
     ItemStack table = new ItemHandler().getItem(Material.ENCHANTMENT_TABLE, 1, 13, "Enchantment_Table");
     ItemStack portal = new ItemHandler().getItem(Material.ENDER_PORTAL_FRAME, 1, 14, "End_portal_frame");
-    ItemStack enderchest = new ItemHandler().getItem(Material.ENDER_CHEST, 1, 14, "Enderchest");
+    ItemStack enderchest = new ItemHandler().getItem(Material.ENDER_CHEST, 1, 14, "End_portal_frame");
 
     @EventHandler
     public void on(PlayerJoinEvent e){
-        Player p = e.getPlayer();
+       /* Player p = e.getPlayer();
         String item = SQL.getString(e.getPlayer(), "head");
 
         if(item.equalsIgnoreCase("none")){
@@ -62,29 +62,29 @@ public class ParticleJoin implements Listener{
         }else if(item.equalsIgnoreCase("010"+"6")){
             p.getInventory().setHelmet(vraagteken);
         }else if(item.equalsIgnoreCase("010"+"7")){
-            p.getInventory().setHelmet(glass);
+            p.getInventory().setHelmet(Glas);
         }else if(item.equalsIgnoreCase("010"+"8")){
-            p.getInventory().setHelmet(glass1);
+            p.getInventory().setHelmet(Glas1);
         }else if(item.equalsIgnoreCase("010"+"9")){
-            p.getInventory().setHelmet(glass2);
+            p.getInventory().setHelmet(Glas2);
         }else if(item.equalsIgnoreCase("010"+"10")){
-            p.getInventory().setHelmet(glass3);
+            p.getInventory().setHelmet(Glas3);
         }else if(item.equalsIgnoreCase("010"+"11")){
-            p.getInventory().setHelmet(glass4);
+            p.getInventory().setHelmet(Glas4);
         }else if(item.equalsIgnoreCase("010"+"12")){
-            p.getInventory().setHelmet(glass5);
+            p.getInventory().setHelmet(Glas5);
         }else if(item.equalsIgnoreCase("010"+"13")){
-            p.getInventory().setHelmet(glass6);
+            p.getInventory().setHelmet(Glas6);
         }else if(item.equalsIgnoreCase("010"+"14")){
-            p.getInventory().setHelmet(glass7);
+            p.getInventory().setHelmet(Glas7);
         }else if(item.equalsIgnoreCase("010"+"15")){
-            p.getInventory().setHelmet(glass8);
+            p.getInventory().setHelmet(Glas8);
         }else if(item.equalsIgnoreCase("010"+"16")){
-            p.getInventory().setHelmet(glass9);
+            p.getInventory().setHelmet(Glas9);
         }else if(item.equalsIgnoreCase("010"+"17")){
-            p.getInventory().setHelmet(glass10);
+            p.getInventory().setHelmet(Glas10);
         }else if(item.equalsIgnoreCase("010"+"18")){
-            p.getInventory().setHelmet(glass11);
+            p.getInventory().setHelmet(Glas11);
         }else if(item.equalsIgnoreCase("010"+"19")){
             p.getInventory().setHelmet(tnt);
         }else if(item.equalsIgnoreCase("010"+"20")){
@@ -109,6 +109,6 @@ public class ParticleJoin implements Listener{
             p.getInventory().setHelmet(Color.colorBanner(DyeColor.PINK));
         }else if(item.equalsIgnoreCase("020"+"7")){
             p.getInventory().setHelmet(Pokeball.pokeballBanner());
-        }
+        }*/
     }
 }

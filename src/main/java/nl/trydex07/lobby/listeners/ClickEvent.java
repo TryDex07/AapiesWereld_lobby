@@ -1,7 +1,6 @@
 package nl.trydex07.lobby.listeners;
 
 
-import be.iFlyinqMC.Core.Level.LevelManager;
 import nl.trydex07.lobby.Core;
 import nl.trydex07.lobby.particles.Circle;
 import nl.trydex07.lobby.particles.Helix;
@@ -35,9 +34,9 @@ public class ClickEvent implements Listener{
     public void onClick(InventoryClickEvent e){
         Player p = (Player) e.getWhoClicked();
         if(e.getInventory().getType() == InventoryType.CREATIVE || e.getInventory().getType() == InventoryType.PLAYER || e.getInventory().getType() == InventoryType.CRAFTING){
-            e.setCancelled(true);
+            //e.setCancelled(true);
         }
-        if(e.getInventory().getName().equalsIgnoreCase(Utility.format("&4Particle"))) {
+        if(e.getInventory().getName().equalsIgnoreCase(Utility.getMessage("Effecten-Name"))) {
             if (e.getCurrentItem().getType() == Material.AIR) {
                 return;
             }
@@ -74,7 +73,7 @@ public class ClickEvent implements Listener{
                     p.closeInventory();
             }
             }
-        if(e.getInventory().getName().equalsIgnoreCase(Utility.format("&4Heads"))) {
+        if(e.getInventory().getName().equalsIgnoreCase(Utility.getMessage("Heads-Name"))) {
             if (e.getCurrentItem().getType() == Material.AIR) {
                 return;
             }
@@ -84,18 +83,16 @@ public class ClickEvent implements Listener{
                 }else {
                     if (e.getSlot() == 19) {
                         e.setCancelled(true);
-                        if (LevelManager.getLevel(p) == 100) {
                             SQL.setString(p, "Lobby", "head", "010"+ + e.getSlot());
                             p.getInventory().setHelmet(e.getCurrentItem());
                             p.closeInventory();
-                        }
+
                     } else if (e.getSlot() == 20 || e.getSlot() == 21 || e.getSlot() == 22) {
                         e.setCancelled(true);
-                        if (LevelManager.getLevel(p) == 250) {
                             SQL.setString(p, "Lobby", "head", "010"+ + e.getSlot());
                             p.getInventory().setHelmet(e.getCurrentItem());
                             p.closeInventory();
-                        }
+
                     } else {
 
                         e.setCancelled(true);
@@ -105,7 +102,7 @@ public class ClickEvent implements Listener{
                         p.closeInventory();
                     }
                 }
-        } else if(e.getInventory().getName().equalsIgnoreCase(Utility.format("&4Banners"))) {
+        } else if(e.getInventory().getName().equalsIgnoreCase(Utility.getMessage("Banners-Name"))) {
             if (e.getCurrentItem().getType() == Material.AIR) {
                 return;
             }
@@ -119,9 +116,9 @@ public class ClickEvent implements Listener{
                     p.closeInventory();
 
             }
-        }else if(e.getInventory().getName().equalsIgnoreCase(Utility.format("&4Cosmetics"))) {
+        }else if(e.getInventory().getName().equalsIgnoreCase(Utility.getMessage("Cosmetic-Name"))) {
             e.setCancelled(true);
-            if(e.getSlot() == 24){
+            if(e.getSlot() == 13){
                 p.getInventory().setArmorContents(null);
                 SQL.setString(p, "Lobby", "head", "none");
                 SQL.setString(p, "Lobby", "particle", "none");
@@ -129,7 +126,7 @@ public class ClickEvent implements Listener{
                     Bukkit.getScheduler().cancelTask(Core.hash.get(p.getUniqueId()));
                 }
             }
-            if(e.getSlot() == 20){
+            if(e.getSlot() == 28){
                 new Particle().setup(p);
             }
             if(e.getSlot() == 15){
@@ -138,7 +135,7 @@ public class ClickEvent implements Listener{
             if(e.getSlot() == 11){
                 new Bannermenu().setup(p);
             }
-        } else if(e.getInventory().getName().equalsIgnoreCase(Utility.format("&4Server Selector"))){
+        } else if(e.getInventory().getName().equalsIgnoreCase(Utility.getMessage("Selector-Name"))){
             e.setCancelled(true);
             addToList();
             fm.reloadConfig();

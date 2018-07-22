@@ -16,7 +16,7 @@ public class Particle {
     private Inventory inv;
 
     public void setup(Player p) {
-        inv = Bukkit.createInventory(null, 27, Utility.format("&4Particle"));
+        inv = Bukkit.createInventory(null, 27, Utility.getMessage("Effecten-Name"));
         ItemStack stack = new ItemHandler().getItem(Material.ENCHANTED_BOOK, 1, 0, Utility.format("&ETOL"));
         ItemMeta meta = stack.getItemMeta();
         meta.addEnchant(Enchantment.PROTECTION_PROJECTILE, 4, true);

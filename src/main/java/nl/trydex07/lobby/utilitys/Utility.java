@@ -40,12 +40,25 @@ public class Utility {
         }
     }
 
+    public static String getCos(String message){
+
+        fm.reloadConfig();
+        if(fm.getConfig().getConfigurationSection( "GUI" ).contains(message)){
+            String s = String.valueOf(fm.getConfig().getConfigurationSection( "GUI" ).get(message));
+            return s.replaceAll("&", "§");
+
+        }else{
+            String wrong1 = "§cHet bericht " + message + " §ckan niet geladen worden! Contacteer een developer!";
+            return wrong1;
+        }
+    }
+
     public static void send(Player p, String server) {
         try {
             ByteArrayDataOutput out = ByteStreams.newDataOutput();
             out.writeUTF("Connect");
             out.writeUTF(server);
-            p.sendMessage("Je wordt verzonden naar de server §4" + server + "§7!");
+            Utility.getMessage("server-send").replaceAll("%server%", server);
             p.sendPluginMessage(Core.getPlugin(Core.class), "BungeeCord", out.toByteArray());
         } catch (Exception e) {
 

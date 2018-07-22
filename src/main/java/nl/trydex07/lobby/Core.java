@@ -5,6 +5,7 @@ import nl.trydex07.lobby.commands.CMDHandler;
 import nl.trydex07.lobby.commands.CMD_Crate;
 import nl.trydex07.lobby.handlers.crate.ArmorStandHandler;
 import nl.trydex07.lobby.handlers.crate.CrateHandler;
+import nl.trydex07.lobby.handlers.pets.PlayerPetHandler;
 import nl.trydex07.lobby.listeners.*;
 import nl.trydex07.lobby.mysql.basic.Config;
 import nl.trydex07.lobby.mysql.database.MySQL;
@@ -14,12 +15,10 @@ import nl.trydex07.lobby.parkour.commands.CMD_Parkour;
 import nl.trydex07.lobby.parkour.listeners.MoveEvent;
 import nl.trydex07.lobby.utilitys.FileManager;
 import org.bukkit.Bukkit;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Item;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
@@ -31,7 +30,7 @@ public class Core extends JavaPlugin{
     FileManager fm = new FileManager(this, "CheckPoints.yml");
 
     public void onEnable(){
-        mysql();
+      //  mysql();
         configs();
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         getCommand("lobby").setExecutor(new CMDHandler());
@@ -73,14 +72,6 @@ public class Core extends JavaPlugin{
         MySQL.connect();
         SQL.createTable("Lobby", "uuid varchar(255), player text, toggleplayer text, fly text, particle text, head varchar(900)");
         SQL.createTable("Crates", "uuid varchar(255), player text, BananenKey text");
-
-        new BukkitRunnable(){
-            @Override
-            public void run() {
-                MySQL.disconnect();
-                MySQL.connect();
-            }
-        }.runTaskTimer(Core.getPlugin(Core.class), 20 * 60 * 5,20 * 60 * 5);
 
     }
 

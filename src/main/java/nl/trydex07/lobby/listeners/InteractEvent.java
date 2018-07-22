@@ -34,7 +34,7 @@ public class InteractEvent implements Listener{
             if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName() == null){
                 return;
             }
-            if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&4&lStop Parkour"))) {
+            if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&6&lStop Parkour"))) {
                 parkour.reloadConfig();
                 ParkourHandler.getParkour(MoveEvent.hash.get(e.getPlayer().getUniqueId())).removeCheckPoint(e.getPlayer().getUniqueId());
                 ParkourHandler.getParkour(MoveEvent.hash.get(e.getPlayer().getUniqueId())).setIngame(e.getPlayer().getUniqueId(), false);
@@ -56,9 +56,9 @@ public class InteractEvent implements Listener{
                 }else{
                     e.getPlayer().sendMessage(Utility.format(Utility.getMessage("parkourspawnnull")));
                 }
-            }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&4Server Selector &7(Rechtsklik)"))){
+            }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&6Server Selector &7(Rechtsklik)"))){
                 new Selector().open(e.getPlayer());
-            }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&4Toggle Spelers &7(Rechtsklik)"))) {
+            }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&6Toggle Spelers &7(Rechtsklik)"))) {
                 String s = SQL.getString(e.getPlayer(), "toggleplayer");
                 if(s.equalsIgnoreCase("true")){
                     for (Player onlinePlayer : Bukkit.getServer().getOnlinePlayers()) {
@@ -73,7 +73,7 @@ public class InteractEvent implements Listener{
                     SQL.setString(e.getPlayer(), "Lobby",  "toggleplayer", "true");
                     e.getPlayer().sendMessage(Utility.getMessage("Show-player").replace("{player}", "" + e.getPlayer()));
                 }
-            }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&4Toggle Fly &7(Rechtsklik)"))) {
+            }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&6Toggle Fly &7(Rechtsklik)"))) {
                 if(!e.getPlayer().hasPermission("fly.use")){
                     e.getPlayer().sendMessage(Utility.format(Utility.getMessage("NoPerm")));
                 }else {
@@ -90,7 +90,7 @@ public class InteractEvent implements Listener{
                         e.getPlayer().sendMessage(Utility.getMessage("Enable-fly").replace("{player}", "" + e.getPlayer()));
                     }
                 }
-            }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&4Cosmetics &7(Rechtsklik)"))) {
+            }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(Utility.format("&6Cosmetics &7(Rechtsklik)"))) {
                 new Cosmetics().setup(e.getPlayer());
             }else{
                 return;
@@ -101,18 +101,18 @@ public class InteractEvent implements Listener{
     public void giveItems(Player p) {
         List<String> compass = new ArrayList<>();
         compass.add(Utility.format("&7Kies de game die jij het liefst wilt spelen."));
-        new ItemHandler().addItem(p, Material.COMPASS, 1, 0, Utility.format("&4Server Selector &7(Rechtsklik)"), compass, 0);
+        new ItemHandler().addItem(p, Material.COMPASS, 1, 0, Utility.format("&6Server Selector &7(Rechtsklik)"), compass, 0);
         List<String> toggle = new ArrayList<>();
         toggle.add(Utility.format("&7Klik hier om alle spelers te verbergen!"));
-        new ItemHandler().addItem(p, Material.RED_ROSE,1, 8, Utility.format("&4Toggle Spelers &7(Rechtsklik)"), toggle,3);
+        new ItemHandler().addItem(p, Material.RED_ROSE,1, 8, Utility.format("&6Toggle Spelers &7(Rechtsklik)"), toggle,3);
         List<String> profile = new ArrayList<>();
         profile.add(Utility.format("&7Hier kan je je eigen stats bekijken!"));
-        new ItemHandler().addPlayerProfile(p,Utility.format("&4Mijn Profiel &7(Rechtsklik)"),profile,8);
+        new ItemHandler().addPlayerProfile(p,Utility.format("&6Mijn Profiel &7(&cOnderhoud&7)"),profile,8);
         List<String> cosmetic = new ArrayList<>();
         cosmetic.add(Utility.format("&7Klik hier om het cosmetic menu te openen."));
-        new ItemHandler().addItem(p, Material.ENDER_CHEST,1, 0, Utility.format("&4Cosmetics &7(Rechtsklik)"), cosmetic,5);
+        new ItemHandler().addItem(p, Material.ENDER_CHEST,1, 0, Utility.format("&6Cosmetics &7(Rechtsklik)"), cosmetic,5);
         List<String> fly = new ArrayList<>();
         fly.add(Utility.format("&7Met deze veer kan je vliegen aan en uit zetten."));
-        new ItemHandler().addItem(p, Material.FEATHER,1, 0, Utility.format("&4Toggle Fly &7(Rechtsklik)"), fly,4);
+        new ItemHandler().addItem(p, Material.FEATHER,1, 0, Utility.format("&6Toggle Fly &7(Rechtsklik)"), fly,4);
     }
 }
